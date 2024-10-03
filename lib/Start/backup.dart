@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pratice_2023_3/Home/mainHome.dart';
+import 'package:pratice_2023_3/Home/integrationHome.dart';
 class Backup extends StatefulWidget {
   const Backup({super.key});
 
@@ -52,7 +52,7 @@ class _BackupState extends State<Backup> {
                         height: 90,
                         child: Center(
                           child: ElevatedButton(
-                            onPressed: () {Navigator.push(context,MaterialPageRoute(builder: (context) => Mainhome())); },
+                            onPressed: () {Navigator.push(context,MaterialPageRoute(builder: (context) =>IntegrationHome())); },
                             style: ElevatedButton.styleFrom(
                                 minimumSize: Size(300, 40), // 최소 크기 설정
                                 backgroundColor: Colors.blueAccent,
