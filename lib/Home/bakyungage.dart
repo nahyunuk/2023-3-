@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pratice_2023_3/Home/integrationHome.dart';
-
+import 'package:pratice_2023_3/Home/fillter.dart';
+import 'package:pratice_2023_3/Home/bottunNavigationBar.dart';
 class Bakyungage extends StatefulWidget {
   const Bakyungage({super.key});
 
@@ -55,7 +56,9 @@ class _BakyungageState extends State<Bakyungage> {
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: OutlinedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context,MaterialPageRoute(builder: (context) =>Fillter()));
+                        },
                         style: OutlinedButton.styleFrom(
                           side: BorderSide(color: Colors.blueAccent),
                           shape: RoundedRectangleBorder(
