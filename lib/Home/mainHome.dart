@@ -1,27 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:pratice_2023_3/Home/bakyungage.dart';
+
 class Mainhome extends StatefulWidget {
   const Mainhome({super.key});
 
   @override
   State<Mainhome> createState() => _MainhomeState();
 }
+
 final Uri _urlHome = Uri.parse('https://www.sbiz.or.kr/hdst/');
-final Uri _urlVideo = Uri.parse('https://www.sbiz.or.kr/hdst/board/boardList.do?boardCd=VIDEO');
-final Uri _urlBest = Uri.parse('https://www.sbiz.or.kr/hdst/board/boardList.do?boardCd=GOODEXAMPLE');
-final Uri _urlFAQ = Uri.parse('https://www.sbiz.or.kr/hdst/board/boardList.do?boardCd=FAQ');
+final Uri _urlVideo =
+    Uri.parse('https://www.sbiz.or.kr/hdst/board/boardList.do?boardCd=VIDEO');
+final Uri _urlBest = Uri.parse(
+    'https://www.sbiz.or.kr/hdst/board/boardList.do?boardCd=GOODEXAMPLE');
+final Uri _urlFAQ =
+    Uri.parse('https://www.sbiz.or.kr/hdst/board/boardList.do?boardCd=FAQ');
+
 Future<void> _launchUrl(Uri _url) async {
   if (!await launchUrl(_url)) {
     throw Exception('Could not launch $_url');
   }
 }
+
 class _MainhomeState extends State<Mainhome> {
   late final PageController _pageController;
   ScrollController _scrollController = ScrollController(initialScrollOffset: 2);
   var height = 200.0;
-
-
-
 
   @override
   void initState() {
@@ -105,10 +110,17 @@ class _MainhomeState extends State<Mainhome> {
                               }
                             });
                           },
-
                           children: [
-                            StoreBox(Image.asset('assets/images/3.png',), "제천 식육점"),
-                            StoreBox(Image.asset('assets/images/1.png',), "제일 스포츠"),
+                            StoreBox(
+                                Image.asset(
+                                  'assets/images/3.png',
+                                ),
+                                "제천 식육점"),
+                            StoreBox(
+                                Image.asset(
+                                  'assets/images/1.png',
+                                ),
+                                "제일 스포츠"),
                             StoreBox(
                                 Image.asset('assets/images/2.jpg'), "협신 전자"),
                             StoreBox(
@@ -166,10 +178,10 @@ class _MainhomeState extends State<Mainhome> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Expanded(child: Storetype("건설업")),
-                          Expanded(child: Storetype("농업")),
-                          Expanded(child: Storetype("도소매업")),
-                          Expanded(child: Storetype("서비스업")),
+                          Industry("건설업"),
+                          Industry("농업"),
+                          Industry("도소매업"),
+                          Industry("서비스업"),
                         ],
                       ),
                     ),
@@ -178,10 +190,10 @@ class _MainhomeState extends State<Mainhome> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Expanded(child: Storetype("숙박업")),
-                          Expanded(child: Storetype("음점점업")),
-                          Expanded(child: Storetype("제조업")),
-                          Expanded(child: Storetype("축산업")),
+                          Industry("숙박업"),
+                          Industry("음식점업"),
+                          Industry("제조업"),
+                          Industry("축산업"),
                         ],
                       ),
                     ),
@@ -206,7 +218,11 @@ class _MainhomeState extends State<Mainhome> {
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [Barogagi("홍보영상",_urlVideo),Barogagi("우수사례",_urlBest),Barogagi("FAQ",_urlFAQ)],
+                        children: [
+                          Barogagi("홍보영상", _urlVideo),
+                          Barogagi("우수사례", _urlBest),
+                          Barogagi("FAQ", _urlFAQ)
+                        ],
                       ),
                     ],
                   ),
@@ -284,6 +300,7 @@ class _MainhomeState extends State<Mainhome> {
       ],
     );
   }
+
   GestureDetector Barogagi(String detail, Uri _url) {
     return GestureDetector(
       child: Container(
@@ -306,4 +323,17 @@ class _MainhomeState extends State<Mainhome> {
       },
     );
   }
+  Expanded Industry (String Industry){
+    return  Expanded(
+        child: GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          Bakyungage()));
+            },
+            child: Storetype(Industry)));
+  }
+
 }
