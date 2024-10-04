@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pratice_2023_3/Home/bottunNavigationBar.dart';
+import 'package:pratice_2023_3/Home/bakyungage.dart';
 import 'package:pratice_2023_3/Home/mainHome.dart';
 class IntegrationHome extends StatefulWidget {
   const IntegrationHome({super.key});
@@ -34,7 +35,7 @@ class _IntegrationHomeState extends State<IntegrationHome> {
       case 0:
         return Mainhome();
       case 1:
-        return Text('Search Page');
+        return Bakyungage();
       case 2:
         return Text('Profile Page');
       default:
