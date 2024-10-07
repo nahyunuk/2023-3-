@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pratice_2023_3/Home/integrationHome.dart';
 import 'package:pratice_2023_3/Home/fillter.dart';
-import 'package:pratice_2023_3/Home/bottunNavigationBar.dart';
+import 'package:pratice_2023_3/Home/detailPage.dart';
 class Bakyungage extends StatefulWidget {
   const Bakyungage({super.key});
 
@@ -87,68 +87,73 @@ class _BakyungageState extends State<Bakyungage> {
                   crossAxisCount: 2,
                   shrinkWrap: true,
                   children: List.generate(8, (index) {
-                    return Column(
-                      children: [
-                        Container(
-                          height: 110,
-                          width: 170,
-                          child: Stack(
-                            children: [
-                              Container(
-                                color: Colors.lightBlue.shade50,
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  child: Icon(
-                                    Icons.image_outlined,
-                                    color: Colors.blueAccent,
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => DetailPage(),));
+                      },
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 110,
+                            width: 170,
+                            child: Stack(
+                              children: [
+                                Container(
+                                  color: Colors.lightBlue.shade50,
+                                  child: Align(
+                                    alignment: Alignment.center,
+                                    child: Icon(
+                                      Icons.image_outlined,
+                                      color: Colors.blueAccent,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Align(
-                                alignment: Alignment.bottomRight,
-                                child: IconButton(
-                                  onPressed: () {
-                                    toggleLike(index);
-                                  },
-                                  icon: likesList[index]
-                                      ? Icon(Icons.favorite)
-                                      : Icon(Icons.favorite_border_outlined),
-                                  color: likesList[index]? Colors.blueAccent:Colors.grey ,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 16,top: 4),
-                                  child: Text("삼백집",style: TextStyle(color: Colors.blueAccent,fontSize: 16,fontWeight: FontWeight.w600),),
+                                Align(
+                                  alignment: Alignment.bottomRight,
+                                  child: IconButton(
+                                    onPressed: () {
+                                      toggleLike(index);
+                                    },
+                                    icon: likesList[index]
+                                        ? Icon(Icons.favorite)
+                                        : Icon(Icons.favorite_border_outlined),
+                                    color: likesList[index]? Colors.blueAccent:Colors.grey ,
+                                  ),
                                 ),
                               ],
                             ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 16,top: 2),
-                              child: Text("전라남도 순천시 연향동 삼백집",overflow: TextOverflow.fade,style: TextStyle(color: Colors.grey,fontSize: 13,fontWeight: FontWeight.w600),)),
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 2),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 16,top: 4),
+                                    child: Text("삼백집",style: TextStyle(color: Colors.blueAccent,fontSize: 16,fontWeight: FontWeight.w600),),
+                                  ),
+                                ],
+                              ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text("주차장",style: TextStyle(fontSize: 14,color: Colors.blueAccent,fontWeight: FontWeight.w600),),
-                              Text("예약",style:TextStyle(color: Colors.grey,fontWeight: FontWeight.w600)),
-                              Text("포장",style:TextStyle(color: Colors.grey,fontWeight: FontWeight.w600)),
-                              Text("장예인편의",style: TextStyle(fontSize: 14,color:Colors.blueAccent,fontWeight: FontWeight.w600)),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 16,top: 2),
+                                child: Text("전라남도 순천시 연향동 삼백집",overflow: TextOverflow.fade,style: TextStyle(color: Colors.grey,fontSize: 13,fontWeight: FontWeight.w600),)),
                             ],
                           ),
-                        )
-                      ],
+                          Padding(
+                            padding: const EdgeInsets.only(top: 2),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text("주차장",style: TextStyle(fontSize: 14,color: Colors.blueAccent,fontWeight: FontWeight.w600),),
+                                Text("예약",style:TextStyle(color: Colors.grey,fontWeight: FontWeight.w600)),
+                                Text("포장",style:TextStyle(color: Colors.grey,fontWeight: FontWeight.w600)),
+                                Text("장예인편의",style: TextStyle(fontSize: 14,color:Colors.blueAccent,fontWeight: FontWeight.w600)),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     );
                   }),
                 ),
