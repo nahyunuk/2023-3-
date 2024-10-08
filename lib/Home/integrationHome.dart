@@ -3,6 +3,8 @@ import 'package:pratice_2023_3/Home/bottunNavigationBar.dart';
 import 'package:pratice_2023_3/Home/bakyungage.dart';
 import 'package:pratice_2023_3/Home/mainHome.dart';
 import 'package:pratice_2023_3/Home/searchPage.dart';
+import 'package:pratice_2023_3/Home/likePage.dart';
+import 'package:pratice_2023_3/Home/settingPage.dart';
 class IntegrationHome extends StatefulWidget {
   const IntegrationHome({super.key});
 
@@ -39,6 +41,10 @@ class _IntegrationHomeState extends State<IntegrationHome> {
         return Bakyungage();
       case 2:
         return SearchPage();
+      case 3:
+        return LikePage();
+      case 4:
+        return SettingPage();
       default:
         return Text('Unknown Page');
     }
