@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pratice_2023_3/Home/bottunNavigationBar.dart';
 import 'package:pratice_2023_3/Home/bakyungage.dart';
 import 'package:pratice_2023_3/Home/mainHome.dart';
+import 'package:pratice_2023_3/Home/searchPage.dart';
 class IntegrationHome extends StatefulWidget {
   const IntegrationHome({super.key});
 
@@ -37,7 +38,7 @@ class _IntegrationHomeState extends State<IntegrationHome> {
       case 1:
         return Bakyungage();
       case 2:
-        return Text('Profile Page');
+        return SearchPage();
       default:
         return Text('Unknown Page');
     }
